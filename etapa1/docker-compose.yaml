@@ -1,0 +1,10 @@
+version: '3'
+
+services:
+  nginx:
+    build: .
+    container_name: nginx-codeedu-rocks
+    restart: always
+    tty: true
+    ports:
+      - "80:80"

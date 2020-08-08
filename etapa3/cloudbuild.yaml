@@ -1,0 +1,16 @@
+steps:
+- id: "Rodando o push da imagem"
+  name: 'gcr.io/cloud-builders/docker'
+  args:
+  - 'build'
+  - '-t'
+  - 'gcr.io/$PROJECT_ID/:latest'
+  - '.'
+
+- id: "Rodando teste unitario"
+  name: 'gcr.io/cloud-builders/docker'
+  args: ['run','-t','--name','myteste','gcr.io/$PROJECT_ID/k8s-desafio-go:latest','go','test']
+
+images:
+- 'gcr.io/$PROJECT_ID/k8s-desafio-go:latest'
+tags: ['cloud-builders-go-desafio']

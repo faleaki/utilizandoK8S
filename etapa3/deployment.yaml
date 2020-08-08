@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: k8s-desafio-go
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: k8s-desafio-go
+  template:
+    metadata:
+      labels:
+        app: k8s-desafio-go
+    spec:
+      containers:
+      - name: golang-codeedu-rocks
+        image: faleaki/k8s-desafio-go
+        ports:
+          - containerPort: 8000
